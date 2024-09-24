@@ -17,30 +17,13 @@ export type Game = {
 }
 
 function App() {
-  const [games, setGames] = useState<Game[]>([])
-  // const [carrinho, setCarrinho] = useState<Game[]>([])
-
-  useEffect(() => {
-    fetch('http://localhost:4000/produtos')
-      .then((res) => res.json())
-      .then((res) => setGames(res))
-  }, [])
-
-  // function adicionarAoCarrinho(jogo: Game) {
-  //   if (carrinho.find((game) => game.id === jogo.id)) {
-  //     alert('Item já adicionado')
-  //   } else {
-  //     setCarrinho([...carrinho, jogo])
-  //   }
-  // }
-
   return (
     <>
       <Provider store={store}>
         <GlobalStyle />
         <div className="container">
           <Header />
-          <Produtos jogos={games} />
+          <Produtos />
         </div>
       </Provider>
     </>
